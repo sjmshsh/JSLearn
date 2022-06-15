@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Tencent</title>
+    <style>
+        .one {
+            height: 50px;
+            width: 200px;
+            background-color: gray;
+            border-top-left-radius: 25px;
+            border-bottom-right-radius: 25px;
+
+            text-align: center;
+            line-height: 50px;
+        }
+
+        .one:active {
+            background-color: orange;
+            color: white;
+        }/*伪类选择器*/
+    </style>
+</head>
+<body>
+<div class="one">这是一个按钮</div>
+</body>
+</html>
