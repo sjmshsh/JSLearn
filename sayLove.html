@@ -1,0 +1,127 @@
+<style>
+    * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+    }
+
+    .container {
+        width: 400px;
+        margin: 0 auto;
+    }
+
+    h1 {
+        text-align: center;
+        padding: 20px 0;
+    }
+
+    p {
+        text-align: center;
+        padding: 10px;
+        color: #666;
+        font-size: 14px;
+    }
+
+    .row {
+        height: 50px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+
+    span {
+        width: 90px;
+        font-size: 20px;
+    }
+
+    input {
+        width: 310px;
+        height: 40px;
+    }
+
+    #submit {
+        width: 400px;
+        color: white;
+        background-color: orange;
+        border: none;
+        border-radius: 5px;
+    }
+
+    #submit:active {
+        background-color: black;
+    }
+
+    .edit {
+        font-size: 18px;
+        padding-left: 5px;
+    }
+
+    .heart {
+        font-size: 18px;
+    }
+</style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>表白墙</h1>
+        <p>输入后提交，会将信息显示在墙上</p>
+        <div class="row">
+            <span>谁</span>
+            <input type="text" class="edit">
+        </div>
+        <div class="row">
+            <span>对谁</span>
+            <input type="text" class="edit">
+        </div>
+        <div class="row">
+            <span>说什么</span>
+            <input type="text" class="edit">
+        </div>
+        <div class="row">
+            <input type="button" value="提 交" id="submit">
+        </div>
+        <div class="row">
+            <span class="heart">我们的心声</span>
+        </div>
+        <!--每次点击"提交"，都在下面增加一个.row，里面放是用户输入的话-->
+    </div>
+    <script src="https://cdn.bootcdn.net/ajax/libs/jquery/3.6.0/jquery.min.js"></script>
+    <script>
+        // 在页面加载的时候，访问服务器，从服务器这边获取到消息列表，并展示出来
+        function load() {
+            $.ajax({
+                type: "GET",
+                url: "message",
+                success: function(data, status) {
+                    // data 是响应的body
+                }
+            });
+        }
+
+
+        let sumbitButton = document.querySelector('#submit');
+        sumbitButton.onclick = function () {
+            //1.先获取到编辑框的内容
+            let edits = document.querySelectorAll('.edit');
+            let from = edits[0].value;
+            let to = edits[1].value;
+            let message = edits[2].value;
+            console.log(from + "," + to + "," + message);
+            if (from == '' || to == '' || message == '') {
+                //验证当前的数据是不是合法的提交
+                return;
+            }
+            //2.根据内容，构造HTML元素
+            let row = document.createElement('div');
+            row.className = 'row';
+            row.innerHTML = from + '对' + to + '说:' + message;
+            //3.把这个新的元素添加到DOM树上
+            let container = document.querySelector('.container');
+            container.appendChild(row);
+            //4.清空原来输入框
+            for (let i = 0; i < edits.length; i++) {
+                edits[i].value = '';
+            }
+        }
+    </script>
