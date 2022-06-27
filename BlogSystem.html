@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>博客系统</title>
+    <link rel="stylesheet" href="common.css">
+    <link rel="stylesheet" href="blog_list.css">
+</head>
+
+<body>
+    <!-- 导航栏 -->
+    <div class="nav">
+        <!-- logo -->
+        <img src="./img/小弥子.PNG" alt="图片出错了">
+        <!-- 标题 -->
+        <span class="title">我的博客系统</span>
+        <!-- 空白的占位符 -->
+        <span class="spacer"></span>
+        <!-- 右侧的几个链接 -->
+        <a href="Blog.html" target="_blank">主页</a>
+        <a href="blog_edit.html" target="_blank">写博客</a>
+        <a href="login.html">注销</a>
+    </div>
+
+    <!-- 版心 -->
+    <div class="container">
+        <!-- 左侧个人信息 -->
+        <div class="left">
+            <div class="card">
+                <img src="./img/JK制服.jpg" alt="这个是jk制服的大美女哦"><br>
+                <h3>胡桃姓胡，蝴蝶也姓胡</h3>
+                <!-- 用户的GitHub地址 -->
+                <a href="https://github.com/sjmshsh" target="_blank">GitHub地址</a>
+                <!-- 统计信息 -->
+                <div class="counter">
+                    <span>文章</span>
+                    <span>分类</span>
+                </div>
+                <div class="counter">
+                    <span>2</span>
+                    <span>1</span>
+                </div>
+            </div>
+        </div>
+        <!-- 右侧内容详情 -->
+        <div class="right">
+            <!-- 每个.blog就表示一篇博客 -->
+            <div class="blog">
+                <!-- 博客的标题 -->
+                <div class="title">Linux操作系统</div>
+                <!-- 博客的发布时间 -->
+                <div class="date">2023-06-19</div>
+                <!-- 博客的摘要 -->
+                <div class="desc">基于文件的通信方式叫做管道：我们可以知道，两个文件要进行通信必要要有一个**平台**也就是两个进程都可以看到的一块儿资源，比如OS提供的一块儿内存。我们看到上面这一张图，可以发现struct file不就是一个共享的资源吗，struct file的内部有一个文件的内核缓冲区，每一个文件都对应一个这个东西，如果我的父进程写入了东西，这么这个数据就会被写入到文件的内核缓冲区，如果调用write函数的话，那么通过OS提供的这个接口，我们就</div>
+                <!-- 查看博客详情按钮 -->
+                <a href="blog_detail.html" class="detail" target="_blank">查看全文 &gt; &gt;</a>
+            </div>
+            <!-- 每个.blog就表示一篇博客 -->
+            <div class="blog">
+                <!-- 博客的标题 -->
+                <div class="title">数据结构与算法--DP</div>
+                <!-- 博客的发布时间 -->
+                <div class="date">2021-06-19</div>
+                <!-- 博客的摘要 -->
+                <div class="desc">
+                    我认为动态规划分为两种类型：第一种：**用来记录递归变量的变化状态，写出递归基本上就写出了动态规划**。这种情况一般情况下第一个位置是用来遍历的，第二个，第三个等位置是题目的限制条件，而dp表本身的含义是在第一个参数和第二个参数的情况下，我们的答案是多少。以上所说我认为dp表的含义和题目的限制条件没有强关联性才可以。</div>
+                <!-- 查看博客详情按钮 -->
+                <a href="blog_detail.html" class="detail" target="_blank">查看全文 &gt; &gt;</a>
+            </div>
+        </div>
+    </div>
+</body>
+
+</html>
